@@ -1,0 +1,17 @@
+pragma solidity ^0.4.0;
+contract Owned
+{
+address public creator;
+
+function Owned () public
+{
+creator = msg.sender;
+}
+
+modifier onlyOwner                        //the one who validate/verifies will be owner only
+{
+require(creator == msg.sender);
+_;         //proceed with the method
+}
+}
+
