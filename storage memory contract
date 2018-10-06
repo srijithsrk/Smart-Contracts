@@ -13,3 +13,15 @@ bool registered;
  St memory myStuff = store[msg.sender];
  mystuff.amountPaid += msg.value;
  }
+function AddStorage() public payable
+{
+St memory myStuff = store[msg.sender];
+mystuff.amountPaid += msg.value;
+}
+function Mine() public view returns(uint topay,uint paid)
+{
+ St memory myStuff = store[msg.sender];
+ topay = myStuff.amountPaid;
+ paid = myStuff.amountOut;
+ }
+ 
