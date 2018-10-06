@@ -1,0 +1,15 @@
+pragma solidity ^0.4.0;
+contract TestStorage
+{
+struct st
+{
+uint amountPaid;
+uint amountOut;
+bool registered;
+}
+ mapping (address => St) store;
+ function AddMem() public payable
+ {
+ St memory myStuff = store[msg.sender];
+ mystuff.amountPaid += msg.value;
+ }
