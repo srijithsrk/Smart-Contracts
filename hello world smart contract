@@ -1,0 +1,16 @@
+pragma solidity ^0.4.0;
+
+contact HelloWorld 
+{
+
+string x;
+
+function HelloWorld()
+{                             //acts as a constructor i.e, its executed during deployment time
+x = data;                    //data acts as a input parameter
+}
+
+function set(string _x)
+{
+x  = _x;
+}
