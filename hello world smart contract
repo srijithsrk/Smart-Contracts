@@ -14,3 +14,9 @@ function set(string _x)
 {
 x  = _x;
 }
+
+function greet() view public returns(string) 
+{
+return x;
+}
+}
