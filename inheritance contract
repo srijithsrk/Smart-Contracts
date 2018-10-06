@@ -10,15 +10,13 @@ creator = msg.sender;
 
 modifier onlyOwner                        //the one who validate/verifies will be owner only
 {
-require(creator == msg.sender);
+require(msg.sender == creator);
 _;         //proceed with the method
 }
 }
 
 contract Instructor is Owned           // inheritance
 {
-
-address public creator;
 
 struct instructor
 {
@@ -34,6 +32,45 @@ function instructor() public
 {
 creator = msg.sender;
 }
+
+function setInstructor(address _address, string _fname, string _lname, uint _age) public onlyOwner
+{
+var Instructor = instructorMap[_address];
+Instructor.fname = _fname;
+Instructor.lname = _lname;
+Instructor.age = _age;
+
+instructorAddr.push(_address);
+}
+function getInstructorAddr() public returns(address[])
+{
+return instructorAddr;
+}
+function getInstructor(address _address) public returns(string,string,uint)
+{
+return(instructorMap[_address].fname,instructorMap[_address].lname,instructorMap[_address].age)
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
