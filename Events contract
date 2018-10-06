@@ -1,0 +1,27 @@
+//This contract is for storing the name and age of a person say he is an instructor
+pragma solidity ^0.4.0;
+contract Instructor
+{
+address creator;
+sting name;
+uint age;
+
+event InstructorEvent(string name, uint age); 
+//action performed in etherum blockchain is stored as logs in the form of events
+i.e; values obtained in lines 18,19 are stored/recorded
+
+function Instructor()
+{
+creator = msg.sender;
+}
+function set(string _name,uint _age) public
+{
+name = _name;
+age = _age;
+InstructorEvent(_name, _age);
+}
+//function get() public view returns(string, uint)
+//{
+//return(name,age);
+//}
+}
