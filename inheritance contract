@@ -15,3 +15,25 @@ _;         //proceed with the method
 }
 }
 
+contract Instructor is Owned           // inheritance
+{
+
+address public creator;
+
+struct instructor
+{
+string fname;
+string lname;
+uint age;
+}
+
+mapping (address => instructor) instructorMap;
+address[] public instructorAddr;
+
+function instructor() public
+{
+creator = msg.sender;
+}
+
+
+
