@@ -16,10 +16,17 @@ creator = msg.sender;
 
 modifier onlyOwner   // this function allows only owner to modify
 {
+require(msg.sender == creator);  //require would revert the gas consumed if there is some error
+_;
+}
 
+modifier valid 
+{
+assert(msg.value > 1 ether);  // no gas would be reverted on using assert
+_;
+}
 
-
-function () payable    // to access payable one needs to send some ether
+function () payable  onlyOwner valid   // to access payable one needs to send some ether
 {
 senderLog(msg.sender);
 valueLog(msg.value);
