@@ -1,0 +1,31 @@
+pragma solidity ^ 0.4.0;
+contract Transaction 
+{
+event senderLog(address);
+event valueLog(uint);
+event CurrentBlockTime(uint);
+event gasPriceOfTranx(uint);
+event BlockNumber(uint);
+event MinerAddress(address);
+
+address public creator;
+function transaction () public
+{
+creator = msg.sender;
+}
+
+modifier onlyOwner   // this function allows only owner to modify
+{
+
+
+
+function () payable    // to access payable one needs to send some ether
+{
+senderLog(msg.sender);
+valueLog(msg.value);
+CurrentBlockTime(now);
+gasPriceOfTranx(tx.gasprice);
+BlockNumber(block.number);
+MinerAddress(block.coinbase);
+}
+}
